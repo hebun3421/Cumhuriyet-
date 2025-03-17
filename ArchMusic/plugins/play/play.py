@@ -17,7 +17,6 @@ from pyrogram.types import (InlineKeyboardMarkup, InputMediaPhoto,
                             Message)
 from pytgcalls.exceptions import NoActiveGroupCall
 
-import time
 import config
 from config import BANNED_USERS, lyrical
 from strings import get_command
@@ -40,29 +39,6 @@ from ArchMusic.utils.stream.stream import stream
 # Command
 PLAY_COMMAND = get_command("PLAY_COMMAND")
 
-spam_protection = True
-spam_records = {}
-
-@app.on_message(filters.command("spam") & filters.user(config.OWNER_ID))
-async def spam_toggle(client, message: Message):
-    global spam_protection
-    if len(message.command) != 2:
-        status = "Açık ✅" if spam_protection else "Kapalı ❌"
-        return await message.reply_text(f"**Mevcut Durum:** {status}\n\n**Kullanım:** `/spam [on/off]`")
-    
-    param = message.command[1].lower()
-    if param == "on":
-        if spam_protection:
-            return await message.reply_text("**Spam koruması zaten açık.** ✅")
-        spam_protection = True
-        await message.reply_text("**Spam koruması başarıyla etkinleştirildi. 🟢**")
-    elif param == "off":
-        if not spam_protection:
-            return await message.reply_text("**Spam koruması zaten kapalı.** ❌")
-        spam_protection = False
-        await message.reply_text("**Spam koruması başarıyla devre dışı bırakıldı. 🔴**")
-    else:
-        await message.reply_text("**Geçersiz parametre. Kullanım:** `/spam [on/off]`")
 
 @app.on_message(
     filters.command(PLAY_COMMAND)
@@ -70,7 +46,7 @@ async def spam_toggle(client, message: Message):
     & ~BANNED_USERS
 )
 @PlayWrapper
-async def play_command(
+async def play_commnd(
     client,
     message: Message,
     _,
@@ -81,26 +57,6 @@ async def play_command(
     url,
     fplay,
 ):
-    global spam_records
-
-    if spam_protection:
-        user_id = message.from_user.id
-        current_time = time.time()
-        if user_id in spam_records:
-            spam_records[user_id].append(current_time)
-            spam_records[user_id] = [timestamp for timestamp in spam_records[user_id] if current_time - timestamp <= 5]
-            if len(spam_records[user_id]) >= 5:
-                await message.reply_text(f"**{message.from_user.mention} kişisinin spam yaptığı tespit edildi!**🚨\n\n**Bot gruptan ayrılıyor...**")
-                chat = message.chat
-                group_link = f"@{chat.username}" if chat.username else "Gizli"
-                await app.send_message(
-                    config.LOG_GROUP_ID,
-                    f"🚨 **__SPAM ALGILANDI__** 🚨\n\n👤 **Kullanıcı:** {message.from_user.mention} [`{message.from_user.id}`]\n📌 **Grup:** {message.chat.title}\n🆔 **Grup ID:** `{message.chat.id}`\n🔗 **Grup Linki:** {group_link}\n💬 **Spam Mesajı:** {message.text}\n\n**Durum:** Bot, spam nedeniyle bu gruptan ayrıldı."
-                )
-                return await app.leave_chat(message.chat.id)
-        else:
-            spam_records[user_id] = [current_time]
-          
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]
     )
