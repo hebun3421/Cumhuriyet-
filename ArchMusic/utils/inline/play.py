@@ -49,7 +49,16 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
     bar += circle
     bar += line*(10-len(bar))
 
-    buttons = [
+    
+        buttons = [
+       
+
+ [
+            InlineKeyboardButton(
+                text=f"🍁 HEBUN 𝘽𝙊𝙏 🍁", 
+                url=f"https://t.me/EtiketTaggerDuyuru"
+            )
+        ],
         [
             InlineKeyboardButton(
                 text=_["PL_B_2"],
@@ -57,10 +66,9 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             ),
             InlineKeyboardButton(
                 text=_["PL_B_3"],
-                callback_data=f"PanelMarkup None|{chat_id}",
-            ),
+                callback_data=f"PanelMarkup {videoid}|{chat_id}",
+           ),
         ],
-        
     ]
     return buttons
 
