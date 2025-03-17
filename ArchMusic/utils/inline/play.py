@@ -36,20 +36,14 @@ def time_to_sec(time: str):
     return total_sec
 
 def stream_markup_timer(_, videoid, chat_id, played, dur):
-    played_sec = time_to_sec(played)
-    total_sec = time_to_sec(dur)
-
-    x, y = str(round(played_sec/total_sec,1)).split(".")
-    pos = int(y)
-
-    line = "─"
-    circle = "●"
-
-    bar = line*(pos-1)
-    bar += circle
-    bar += line*(10-len(bar))
-
+    bar = random.choice(selections)
     buttons = [
+        [
+            InlineKeyboardButton(
+                text=f"🔮 HEBUN 🔮", 
+                url=f"https://t.me/EtiketTaggerDuyuru"
+            )
+        ],
         [
             InlineKeyboardButton(
                 text=_["PL_B_2"],
@@ -57,10 +51,9 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             ),
             InlineKeyboardButton(
                 text=_["PL_B_3"],
-                callback_data=f"PanelMarkup None|{chat_id}",
-            ),
+                callback_data=f"PanelMarkup {videoid}|{chat_id}",
+           ),
         ],
-        
     ]
     return buttons
 
@@ -73,8 +66,6 @@ def telegram_markup_timer(_, chat_id, played, dur):
         
     ]
     return buttons
-# Rest of the functions remain the same...
-
 
 
 ## Inline without Timer Bar
@@ -83,19 +74,10 @@ def telegram_markup_timer(_, chat_id, played, dur):
 def stream_markup(_, videoid, chat_id):
     buttons = [
         [
-            InlineKeyboardButton(
-                text=_["PL_B_2"],
-                callback_data=f"add_playlist {videoid}",
-            ),
-            InlineKeyboardButton(
-                text=_["PL_B_3"],
-                callback_data=f"PanelMarkup None|{chat_id}",
-            ),
+            
         ],
-        
-    ]
-    return buttons
-
+]
+return buttons
 
 def telegram_markup(_, chat_id):
     buttons = [
