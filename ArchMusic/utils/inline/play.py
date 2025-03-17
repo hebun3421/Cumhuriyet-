@@ -37,6 +37,13 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 url=f"https://t.me/EtiketTaggerDuyuru"
             )
         ],
+[
+            InlineKeyboardButton(
+                text=f"▪️ SAHiP ▪️",
+              url="https://t.me/@Hebun2134",
+            ),
+        ],
+    
         [
             InlineKeyboardButton(
                 text=_["PL_B_2"],
