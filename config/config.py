@@ -42,11 +42,11 @@ SONG_DOWNLOAD_DURATION = int(
 
 # You'll need a Private Group ID for this.
 
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID","-1002463541540"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID","-1002416913416"))
 
 # A name for your Music bot.
 
-MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME","Hebun Music")
+MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME","cumhuriyetMuzik")
 
 # Your User ID.
 
@@ -69,7 +69,7 @@ UPSTREAM_REPO = getenv(
 
     "UPSTREAM_REPO",
 
-    "https://github.com/Hebun2121/Hebu",
+    "https://github.com/hebub3421/Cumhuriyettt",
 
 )
 
@@ -183,7 +183,7 @@ SET_CMDS = getenv("SET_CMDS", False)
 
 # You'll need a Pyrogram String Session for these vars. Generate String from our session generator bot @YukkiStringBot
 
-STRING1 = getenv("STRING_SESSION", "BAFDZnYAkNYA-_nRtDGx4f-IBGoChnd3QWD8aQoQkLNYP6GnjxjsWF7nFwtH3ZMjzF-Vi0j5L-z83qHdvA9FVVaFDyvX7WJsnBvWI9zdGmpbA0ilGeSDV7Mtmiva9p6k4yg-a4fxvOrqOAdDpnL567kitZTBJJmL0prTioildh5OO-98wwtFoatS9MZRe5hCdd1qIe5JA6jPvHMNWD4JmOxrI8py3opueFfx2IMSOgAH23DcgvpK1zXkdBZmbXMJf9TpU3Xudcp5qcU3gTw5uh0MYbCJWFs8FvnDYgfX1fMENDG-j7zsPLUc96EyXcwwp2S8EYbYJjfRDRMEJ4eZOAyRyAFGygAAAAHNWQxsAA")
+STRING1 = getenv("STRING_SESSION", "")
 
 STRING2 = getenv("STRING_SESSION2", None)
 
