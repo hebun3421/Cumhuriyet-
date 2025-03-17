@@ -36,8 +36,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 text=f",📚 HEBUN 𝘽𝙊𝙏📚 ", 
                 url=f"https://t.me/EtiketTaggerDuyuru"
             )
-        ],
-[
+      
             InlineKeyboardButton(
                 text=f"▪️ SAHiP ▪️",
               url="https://t.me/Hebun2134",
