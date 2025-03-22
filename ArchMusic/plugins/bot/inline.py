@@ -18,8 +18,8 @@ from pyrogram.types import (
 from py_yt import VideosSearch
 
 from config import BANNED_USERS, MUSIC_BOT_NAME
-from AlexaMusic import app
-from AlexaMusic.utils.inlinequery import answer
+from ArchMusic import app
+from ArchMusic.utils.inlinequery import answer
 
 
 @app.on_inline_query(~BANNED_USERS)
