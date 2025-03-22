@@ -1,21 +1,25 @@
-#
-# Copyright (C) 2021-2023 by ArchBots@Github, < https://github.com/ArchBots >.
-#
-# This file is part of < https://github.com/ArchBots/ArchMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/ArchBots/ArchMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-#
+# Copyright (C) 2025 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
+# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
 
-from pyrogram.types import (InlineKeyboardButton,
-                            InlineKeyboardMarkup,
-                            InlineQueryResultPhoto)
-from youtubesearchpython.__future__ import VideosSearch
+"""
+TheTeamAlexa is a project of Telegram bots with variety of purposes.
+Copyright (c) 2021 ~ Present Team Alexa <https://github.com/TheTeamAlexa>
+
+This program is free software: you can redistribute it and can modify
+as you want or you can collabe if you have new ideas.
+"""
+
+
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultPhoto,
+)
+from py_yt import VideosSearch
 
 from config import BANNED_USERS, MUSIC_BOT_NAME
-from ArchMusic import app
-from ArchMusic.utils.inlinequery import answer
+from AlexaMusic import app
+from AlexaMusic.utils.inlinequery import answer
 
 
 @app.on_inline_query(~BANNED_USERS)
@@ -24,9 +28,7 @@ async def inline_query_handler(client, query):
     answers = []
     if text.strip() == "":
         try:
-            await client.answer_inline_query(
-                query.id, results=answer, cache_time=10
-            )
+            await client.answer_inline_query(query.id, results=answer, cache_time=10)
         except:
             return
     else:
@@ -36,9 +38,7 @@ async def inline_query_handler(client, query):
             title = (result[x]["title"]).title()
             duration = result[x]["duration"]
             views = result[x]["viewCount"]["short"]
-            thumbnail = result[x]["thumbnails"][0]["url"].split("?")[
-                0
-            ]
+            thumbnail = result[x]["thumbnails"][0]["url"].split("?")[0]
             channellink = result[x]["channel"]["link"]
             channel = result[x]["channel"]["name"]
             link = result[x]["link"]
@@ -48,25 +48,22 @@ async def inline_query_handler(client, query):
                 [
                     [
                         InlineKeyboardButton(
-                            text="🎥 Youtube'da İzle",
+                            text="• ʏᴏᴜᴛᴜʙᴇ •",
                             url=link,
                         )
                     ],
                 ]
             )
             searched_text = f"""
-❇️**Başlık:** [{title}]({link})
+📌**ᴛɪᴛʟᴇ:** [{title}]({link})
 
-⏳**Süre:** {duration} Dakika
-👀**Görüntülemeler:** `{views}`
-⏰**Yayınlanma Zamanı:** {published}
-🎥**Kanal Adı:** {channel}
-📎**Kanal Bağlantısı:** [Buradan Ziyaret Edin]({channellink})
+⏳**ᴅᴜʀᴀᴛɪᴏɴ:** {duration} Mins
+👀**ᴠɪᴇᴡs:** `{views}`
+⏰**ᴩᴜʙʟɪsʜᴇᴅ ᴏɴ:** {published}
+🎥**ᴄʜᴀɴɴᴇʟ:** {channel}
+📎**ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ:** [ᴠɪsɪᴛ ᴄʜᴀɴɴᴇʟ]({channellink})
 
-__Aranan bu mesajı sesli sohbette yayınlamak için /oynat komutuyla yanıtlayın.__
-
-⚡️ ** {MUSIC_BOT_NAME} Tarafından Satır İçi Arama **"""
-
+💖 ** sᴇᴀʀᴄʜ ᴩᴏᴡᴇʀᴇᴅ ʙʏ {MUSIC_BOT_NAME} **"""
             answers.append(
                 InlineQueryResultPhoto(
                     photo_url=thumbnail,
@@ -78,8 +75,6 @@ __Aranan bu mesajı sesli sohbette yayınlamak için /oynat komutuyla yanıtlay�
                 )
             )
         try:
-            return await client.answer_inline_query(
-                query.id, results=answers
-            )
+            return await client.answer_inline_query(query.id, results=answers)
         except:
             return
