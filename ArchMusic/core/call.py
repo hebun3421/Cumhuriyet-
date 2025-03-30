@@ -506,7 +506,6 @@ class Call(PyTgCalls):
                 if videoid == "telegram":
                     button = telegram_markup(_, chat_id)
                     run = await app.send_photo(
-                    run = await app.send_photo(
                         original_chat_id,
                         photo=(
                             config.TELEGRAM_AUDIO_URL
