@@ -14,7 +14,7 @@ from pyrogram import filters
 from pyrogram.enums import ChatType, ParseMode
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
-from py_yt import VideosSearch
+youtubesearchpython.__future__ import VideosSearch
 
 import config
 from config import BANNED_USERS
