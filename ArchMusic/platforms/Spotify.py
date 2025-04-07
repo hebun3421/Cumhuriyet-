@@ -14,7 +14,7 @@ import re
 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-youtubesearchpython.__future__ import VideosSearch
+from youtubesearchpython.__future__ import VideosSearch
 
 import config
 
