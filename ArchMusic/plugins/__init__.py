@@ -1,12 +1,14 @@
-#
-# Copyright (C) 2021-2023 by ArchBots@Github, < https://github.com/ArchBots >.
-#
-# This file is part of < https://github.com/ArchBots/ArchMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/ArchBots/ArchMusic/blob/master/LICENSE >
-#
-# All rights reserved.
-#
+# Copyright (C) 2025 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
+# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
+
+"""
+TheTeamAlexa is a project of Telegram bots with variety of purposes.
+Copyright (c) 2021 ~ Present Team Alexa <https://github.com/TheTeamAlexa>
+
+This program is free software: you can redistribute it and can modify
+as you want or you can collabe if you have new ideas.
+"""
+
 
 import glob
 from os.path import dirname, isfile
@@ -19,9 +21,7 @@ def __list_all_modules():
     all_modules = [
         (((f.replace(work_dir, "")).replace("/", "."))[:-3])
         for f in mod_paths
-        if isfile(f)
-        and f.endswith(".py")
-        and not f.endswith("__init__.py")
+        if isfile(f) and f.endswith(".py") and not f.endswith("__init__.py")
     ]
 
     return all_modules
