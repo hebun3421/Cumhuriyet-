@@ -18,7 +18,7 @@ from typing import Union
 from yt_dlp import YoutubeDL
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
-youtubesearchpython.__future__ import VideosSearch
+from youtubesearchpython.__future__ import VideosSearch
 
 import config
 from ArchMusic.utils.database import is_on_off
