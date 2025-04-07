@@ -18,7 +18,7 @@ import aiofiles
 import aiohttp
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
-from py_yt import VideosSearch
+from youtubesearchpython.__future__ import VideosSearch
 
 from config import YOUTUBE_IMG_URL
 
@@ -90,7 +90,7 @@ async def gen_thumb(videoid):
         name_font = ImageFont.truetype("assets/font.ttf", 30)
         para = textwrap.wrap(title, width=30)
         j = 0
-        draw.text((5, 5), f"NEWROZMusic", fill="white", font=name_font)
+        draw.text((5, 5), f"Alexa MusicBot", fill="white", font=name_font)
         draw.text(
             (600, 150),
             "NOW PLAYING",
