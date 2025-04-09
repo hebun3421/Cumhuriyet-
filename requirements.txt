@@ -12,10 +12,9 @@ heroku3
 httpx[http2]
 lyricsgenius
 motor
-ntgcalls
+ntgcalls~=1.3.3
 pillow
 psutil
-py-tgcalls~=0.9.7
 pykeyboard
 Kurigram
 python-dotenv
@@ -27,5 +26,7 @@ unidecode
 werkzeug
 yt-dlp
 https://github.com/KSKOP69/youtube-search-python/archive/ksk.zip
+pyyaml
+py-tgcalls~=0.9.7
 pyyaml
 gTTS
